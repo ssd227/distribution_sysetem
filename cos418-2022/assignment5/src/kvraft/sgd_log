@@ -1,0 +1,3000 @@
+=== RUN   TestBasic
+Test: One client ...
+start kv server 0
+start kv server 1
+start kv server 2
+start kv server 3
+start kv server 4
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S0
+kvs[0] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S1
+kvs[2] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S2
+kvs[1] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S3
+kvs[3] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[3] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[4] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S0
+kvs[0] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S1
+kvs[2] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S2
+kvs[1] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S3
+kvs[3] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[3] [False1] Op_put_append {2558416400192166295 0 Put 0 }
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[2558416400192166295] uid[1] Put  (0 : ) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Put 0 }. (Index:1-Term:1-ok:true)
+		Leader[4] is alive
+kvs[4] leader get applied Message[1]
+kvs[4] leader cache Msg[[{1 {2558416400192166295 0 Put 0 } false []}]]
+		Follower[1] is alive
+		Follower[2] is alive
+kvs[4] cache worker[2558416400192166295] 
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Put 0 }] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[1] Put reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[1] Put (0 : ) success, 结束循环
+
+Clerk[2558416400192166295] uid[2] Append  (0 : x 0 0 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 0 y}. (Index:2-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[2]
+kvs[4] leader cache Msg[[{2 {2558416400192166295 0 Append 0 x 0 0 y} false []}]]
+		Follower[0] is alive
+		Follower[2] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 0 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[2] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[2] Append (0 : x 0 0 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[3] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:3-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[3]
+kvs[4] leader cache Msg[[{3 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[2] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[3] Get(0) reply_ok(true), reply({false  x 0 0 y})
+Clerk[2558416400192166295] Uid[3] Get(0) success, reply_value[x 0 0 y] 结束循环
+
+Clerk[2558416400192166295] uid[4] Append  (0 : x 0 1 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 1 y}. (Index:4-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[2] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[4]
+kvs[4] leader cache Msg[[{4 {2558416400192166295 0 Append 0 x 0 1 y} false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 1 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[4] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[4] Append (0 : x 0 1 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[5] Append  (0 : x 0 2 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 2 y}. (Index:5-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[5]
+kvs[4] leader cache Msg[[{5 {2558416400192166295 0 Append 0 x 0 2 y} false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 2 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[5] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[5] Append (0 : x 0 2 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[6] Append  (0 : x 0 3 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 3 y}. (Index:6-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[2] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[6]
+kvs[4] leader cache Msg[[{6 {2558416400192166295 0 Append 0 x 0 3 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 3 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[6] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[6] Append (0 : x 0 3 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[7] Append  (0 : x 0 4 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 4 y}. (Index:7-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+		Follower[0] is alive
+kvs[4] leader get applied Message[7]
+kvs[4] leader cache Msg[[{7 {2558416400192166295 0 Append 0 x 0 4 y} false []}]]
+		Follower[2] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 4 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[7] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[7] Append (0 : x 0 4 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[8] Append  (0 : x 0 5 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 5 y}. (Index:8-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[8]
+kvs[4] leader cache Msg[[{8 {2558416400192166295 0 Append 0 x 0 5 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 5 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[8] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[8] Append (0 : x 0 5 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[9] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:9-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[9]
+kvs[4] leader cache Msg[[{9 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[9] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[2558416400192166295] Uid[9] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[2558416400192166295] Uid[10] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:10-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[10]
+kvs[4] leader cache Msg[[{10 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[10] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[2558416400192166295] Uid[10] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[2558416400192166295] Uid[11] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:11-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[11]
+kvs[4] leader cache Msg[[{11 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[11] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[2558416400192166295] Uid[11] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[2558416400192166295] uid[12] Append  (0 : x 0 6 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 6 y}. (Index:12-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[12]
+kvs[4] leader cache Msg[[{12 {2558416400192166295 0 Append 0 x 0 6 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 6 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[12] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[12] Append (0 : x 0 6 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[13] Append  (0 : x 0 7 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 7 y}. (Index:13-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[13]
+kvs[4] leader cache Msg[[{13 {2558416400192166295 0 Append 0 x 0 7 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 7 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[13] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[13] Append (0 : x 0 7 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[14] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:14-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[14]
+kvs[4] leader cache Msg[[{14 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[14] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y})
+Clerk[2558416400192166295] Uid[14] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y] 结束循环
+
+Clerk[2558416400192166295] uid[15] Append  (0 : x 0 8 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 8 y}. (Index:15-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[15]
+kvs[4] leader cache Msg[[{15 {2558416400192166295 0 Append 0 x 0 8 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 8 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[15] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[15] Append (0 : x 0 8 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[16] Append  (0 : x 0 9 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 9 y}. (Index:16-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[16]
+kvs[4] leader cache Msg[[{16 {2558416400192166295 0 Append 0 x 0 9 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 9 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[16] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[16] Append (0 : x 0 9 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[17] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:17-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[17]
+kvs[4] leader cache Msg[[{17 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[17] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[2558416400192166295] Uid[17] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[2558416400192166295] Uid[18] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:18-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[18]
+kvs[4] leader cache Msg[[{18 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[18] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[2558416400192166295] Uid[18] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[2558416400192166295] uid[19] Append  (0 : x 0 10 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 10 y}. (Index:19-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[19]
+kvs[4] leader cache Msg[[{19 {2558416400192166295 0 Append 0 x 0 10 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 10 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[19] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[19] Append (0 : x 0 10 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[20] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:20-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[20]
+kvs[4] leader cache Msg[[{20 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[20] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 y})
+Clerk[2558416400192166295] Uid[20] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 y] 结束循环
+
+Clerk[2558416400192166295] uid[21] Append  (0 : x 0 11 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 11 y}. (Index:21-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[21]
+kvs[4] leader cache Msg[[{21 {2558416400192166295 0 Append 0 x 0 11 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 11 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[21] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[21] Append (0 : x 0 11 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[22] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:22-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[22]
+kvs[4] leader cache Msg[[{22 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[22] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y})
+Clerk[2558416400192166295] Uid[22] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y] 结束循环
+
+Clerk[2558416400192166295] Uid[23] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:23-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[23]
+kvs[4] leader cache Msg[[{23 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[23] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y})
+Clerk[2558416400192166295] Uid[23] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y] 结束循环
+
+Clerk[2558416400192166295] Uid[24] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:24-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[24]
+kvs[4] leader cache Msg[[{24 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[3] is alive
+Clerk[2558416400192166295] Uid[24] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y})
+Clerk[2558416400192166295] Uid[24] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y] 结束循环
+
+Clerk[2558416400192166295] uid[25] Append  (0 : x 0 12 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 12 y}. (Index:25-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[25]
+kvs[4] leader cache Msg[[{25 {2558416400192166295 0 Append 0 x 0 12 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 12 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[25] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[25] Append (0 : x 0 12 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[26] Append  (0 : x 0 13 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 13 y}. (Index:26-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[26]
+kvs[4] leader cache Msg[[{26 {2558416400192166295 0 Append 0 x 0 13 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 13 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[26] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[26] Append (0 : x 0 13 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[27] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:27-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[27]
+kvs[4] leader cache Msg[[{27 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[27] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y})
+Clerk[2558416400192166295] Uid[27] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y] 结束循环
+
+Clerk[2558416400192166295] uid[28] Append  (0 : x 0 14 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 14 y}. (Index:28-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[28]
+kvs[4] leader cache Msg[[{28 {2558416400192166295 0 Append 0 x 0 14 y} false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 14 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[28] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[28] Append (0 : x 0 14 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[29] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:29-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[29]
+kvs[4] leader cache Msg[[{29 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[29] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y})
+Clerk[2558416400192166295] Uid[29] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y] 结束循环
+
+Clerk[2558416400192166295] uid[30] Append  (0 : x 0 15 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 15 y}. (Index:30-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[30]
+kvs[4] leader cache Msg[[{30 {2558416400192166295 0 Append 0 x 0 15 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 15 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[30] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[30] Append (0 : x 0 15 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[31] Append  (0 : x 0 16 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 16 y}. (Index:31-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[31]
+kvs[4] leader cache Msg[[{31 {2558416400192166295 0 Append 0 x 0 16 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 16 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[31] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[31] Append (0 : x 0 16 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[32] Append  (0 : x 0 17 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 17 y}. (Index:32-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[32]
+kvs[4] leader cache Msg[[{32 {2558416400192166295 0 Append 0 x 0 17 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 17 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[32] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[32] Append (0 : x 0 17 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[33] Append  (0 : x 0 18 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 18 y}. (Index:33-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[33]
+kvs[4] leader cache Msg[[{33 {2558416400192166295 0 Append 0 x 0 18 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 18 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[33] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[33] Append (0 : x 0 18 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[34] Append  (0 : x 0 19 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 19 y}. (Index:34-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[34]
+kvs[4] leader cache Msg[[{34 {2558416400192166295 0 Append 0 x 0 19 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 19 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[34] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[34] Append (0 : x 0 19 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[35] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:35-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[35]
+kvs[4] leader cache Msg[[{35 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[35] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y})
+Clerk[2558416400192166295] Uid[35] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y] 结束循环
+
+Clerk[2558416400192166295] uid[36] Append  (0 : x 0 20 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 20 y}. (Index:36-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[36]
+kvs[4] leader cache Msg[[{36 {2558416400192166295 0 Append 0 x 0 20 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 20 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[36] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[36] Append (0 : x 0 20 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[37] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:37-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[37]
+kvs[4] leader cache Msg[[{37 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[37] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y})
+Clerk[2558416400192166295] Uid[37] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y] 结束循环
+
+Clerk[2558416400192166295] Uid[38] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:38-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[38]
+kvs[4] leader cache Msg[[{38 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[38] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y})
+Clerk[2558416400192166295] Uid[38] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y] 结束循环
+
+Clerk[2558416400192166295] uid[39] Append  (0 : x 0 21 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 21 y}. (Index:39-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[39]
+kvs[4] leader cache Msg[[{39 {2558416400192166295 0 Append 0 x 0 21 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 21 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[39] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[39] Append (0 : x 0 21 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[40] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:40-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[40]
+kvs[4] leader cache Msg[[{40 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[40] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 y})
+Clerk[2558416400192166295] Uid[40] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 y] 结束循环
+
+Clerk[2558416400192166295] uid[41] Append  (0 : x 0 22 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 22 y}. (Index:41-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[41]
+kvs[4] leader cache Msg[[{41 {2558416400192166295 0 Append 0 x 0 22 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 22 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[41] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[41] Append (0 : x 0 22 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[42] Append  (0 : x 0 23 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 23 y}. (Index:42-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[42]
+kvs[4] leader cache Msg[[{42 {2558416400192166295 0 Append 0 x 0 23 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 23 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[42] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[42] Append (0 : x 0 23 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[43] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:43-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[43]
+kvs[4] leader cache Msg[[{43 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[43] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y})
+Clerk[2558416400192166295] Uid[43] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y] 结束循环
+
+Clerk[2558416400192166295] Uid[44] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:44-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[44]
+kvs[4] leader cache Msg[[{44 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[44] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y})
+Clerk[2558416400192166295] Uid[44] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y] 结束循环
+
+Clerk[2558416400192166295] Uid[45] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:45-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[45]
+kvs[4] leader cache Msg[[{45 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[45] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y})
+Clerk[2558416400192166295] Uid[45] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y] 结束循环
+
+Clerk[2558416400192166295] Uid[46] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:46-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[46]
+kvs[4] leader cache Msg[[{46 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[46] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y})
+Clerk[2558416400192166295] Uid[46] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 y] 结束循环
+
+Clerk[2558416400192166295] uid[47] Append  (0 : x 0 24 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 24 y}. (Index:47-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[47]
+kvs[4] leader cache Msg[[{47 {2558416400192166295 0 Append 0 x 0 24 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 24 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[47] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[47] Append (0 : x 0 24 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[48] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:48-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[48]
+kvs[4] leader cache Msg[[{48 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[48] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 y})
+Clerk[2558416400192166295] Uid[48] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 y] 结束循环
+
+Clerk[2558416400192166295] uid[49] Append  (0 : x 0 25 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 25 y}. (Index:49-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[49]
+kvs[4] leader cache Msg[[{49 {2558416400192166295 0 Append 0 x 0 25 y} false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 25 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[49] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[49] Append (0 : x 0 25 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[50] Append  (0 : x 0 26 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 26 y}. (Index:50-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[50]
+kvs[4] leader cache Msg[[{50 {2558416400192166295 0 Append 0 x 0 26 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 26 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[50] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[50] Append (0 : x 0 26 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[51] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:51-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[51]
+kvs[4] leader cache Msg[[{51 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[51] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 y})
+Clerk[2558416400192166295] Uid[51] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 y] 结束循环
+
+Clerk[2558416400192166295] uid[52] Append  (0 : x 0 27 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 27 y}. (Index:52-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[52]
+kvs[4] leader cache Msg[[{52 {2558416400192166295 0 Append 0 x 0 27 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 27 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[52] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[52] Append (0 : x 0 27 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[53] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:53-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[53]
+kvs[4] leader cache Msg[[{53 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[53] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y})
+Clerk[2558416400192166295] Uid[53] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y] 结束循环
+
+Clerk[2558416400192166295] uid[54] Append  (0 : x 0 28 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 28 y}. (Index:54-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[54]
+kvs[4] leader cache Msg[[{54 {2558416400192166295 0 Append 0 x 0 28 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 28 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[54] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[54] Append (0 : x 0 28 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[55] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:55-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[55]
+kvs[4] leader cache Msg[[{55 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[55] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y})
+Clerk[2558416400192166295] Uid[55] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y] 结束循环
+
+Clerk[2558416400192166295] Uid[56] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:56-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[56]
+kvs[4] leader cache Msg[[{56 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[56] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y})
+Clerk[2558416400192166295] Uid[56] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y] 结束循环
+
+Clerk[2558416400192166295] uid[57] Append  (0 : x 0 29 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 29 y}. (Index:57-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[57]
+kvs[4] leader cache Msg[[{57 {2558416400192166295 0 Append 0 x 0 29 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 29 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[57] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[57] Append (0 : x 0 29 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[58] Append  (0 : x 0 30 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 30 y}. (Index:58-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[58]
+kvs[4] leader cache Msg[[{58 {2558416400192166295 0 Append 0 x 0 30 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 30 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[58] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[58] Append (0 : x 0 30 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[59] Append  (0 : x 0 31 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 31 y}. (Index:59-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[59]
+kvs[4] leader cache Msg[[{59 {2558416400192166295 0 Append 0 x 0 31 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 31 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[59] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[59] Append (0 : x 0 31 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[60] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:60-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[60]
+kvs[4] leader cache Msg[[{60 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[60] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 y})
+Clerk[2558416400192166295] Uid[60] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 y] 结束循环
+
+Clerk[2558416400192166295] uid[61] Append  (0 : x 0 32 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 32 y}. (Index:61-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[61]
+kvs[4] leader cache Msg[[{61 {2558416400192166295 0 Append 0 x 0 32 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 32 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[61] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[61] Append (0 : x 0 32 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[62] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:62-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[62]
+kvs[4] leader cache Msg[[{62 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[62] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 y})
+Clerk[2558416400192166295] Uid[62] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 y] 结束循环
+
+Clerk[2558416400192166295] Uid[63] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:63-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[63]
+kvs[4] leader cache Msg[[{63 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[63] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 y})
+Clerk[2558416400192166295] Uid[63] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 y] 结束循环
+
+Clerk[2558416400192166295] uid[64] Append  (0 : x 0 33 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 33 y}. (Index:64-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[64]
+kvs[4] leader cache Msg[[{64 {2558416400192166295 0 Append 0 x 0 33 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 33 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[64] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[64] Append (0 : x 0 33 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[65] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:65-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[65]
+kvs[4] leader cache Msg[[{65 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[65] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y})
+Clerk[2558416400192166295] Uid[65] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y] 结束循环
+
+Clerk[2558416400192166295] Uid[66] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:66-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[66]
+kvs[4] leader cache Msg[[{66 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[66] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y})
+Clerk[2558416400192166295] Uid[66] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y] 结束循环
+
+Clerk[2558416400192166295] Uid[67] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:67-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[67]
+kvs[4] leader cache Msg[[{67 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[67] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y})
+Clerk[2558416400192166295] Uid[67] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 y] 结束循环
+
+Clerk[2558416400192166295] uid[68] Append  (0 : x 0 34 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 34 y}. (Index:68-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[68]
+kvs[4] leader cache Msg[[{68 {2558416400192166295 0 Append 0 x 0 34 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 34 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[68] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[68] Append (0 : x 0 34 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[69] Append  (0 : x 0 35 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 35 y}. (Index:69-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[69]
+kvs[4] leader cache Msg[[{69 {2558416400192166295 0 Append 0 x 0 35 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 35 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[69] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[69] Append (0 : x 0 35 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[70] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:70-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[70]
+kvs[4] leader cache Msg[[{70 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[70] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 y})
+Clerk[2558416400192166295] Uid[70] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 y] 结束循环
+
+Clerk[2558416400192166295] uid[71] Append  (0 : x 0 36 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 36 y}. (Index:71-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[71]
+kvs[4] leader cache Msg[[{71 {2558416400192166295 0 Append 0 x 0 36 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 36 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[71] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[71] Append (0 : x 0 36 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[72] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:72-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[72]
+kvs[4] leader cache Msg[[{72 {2558416400192166295 0 Get 0 } false []}]]
+Clerk[2558416400192166295] Uid[72] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 y})
+Clerk[2558416400192166295] Uid[72] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 y] 结束循环
+
+Clerk[2558416400192166295] uid[73] Append  (0 : x 0 37 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 37 y}. (Index:73-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[73]
+kvs[4] leader cache Msg[[{73 {2558416400192166295 0 Append 0 x 0 37 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 37 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[73] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[73] Append (0 : x 0 37 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[74] Append  (0 : x 0 38 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 38 y}. (Index:74-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[74]
+kvs[4] leader cache Msg[[{74 {2558416400192166295 0 Append 0 x 0 38 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 38 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[74] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[74] Append (0 : x 0 38 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[75] Append  (0 : x 0 39 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 39 y}. (Index:75-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[75]
+kvs[4] leader cache Msg[[{75 {2558416400192166295 0 Append 0 x 0 39 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 39 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[75] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[75] Append (0 : x 0 39 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[76] Append  (0 : x 0 40 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 40 y}. (Index:76-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[76]
+kvs[4] leader cache Msg[[{76 {2558416400192166295 0 Append 0 x 0 40 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 40 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[76] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[76] Append (0 : x 0 40 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[77] Append  (0 : x 0 41 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 41 y}. (Index:77-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[77]
+kvs[4] leader cache Msg[[{77 {2558416400192166295 0 Append 0 x 0 41 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 41 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[77] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[77] Append (0 : x 0 41 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[78] Append  (0 : x 0 42 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 42 y}. (Index:78-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[78]
+kvs[4] leader cache Msg[[{78 {2558416400192166295 0 Append 0 x 0 42 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 42 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[78] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[78] Append (0 : x 0 42 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[79] Append  (0 : x 0 43 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 43 y}. (Index:79-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[79]
+kvs[4] leader cache Msg[[{79 {2558416400192166295 0 Append 0 x 0 43 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 43 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[79] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[79] Append (0 : x 0 43 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[80] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:80-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[80]
+kvs[4] leader cache Msg[[{80 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[80] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 y})
+Clerk[2558416400192166295] Uid[80] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 y] 结束循环
+
+Clerk[2558416400192166295] uid[81] Append  (0 : x 0 44 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 44 y}. (Index:81-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[81]
+kvs[4] leader cache Msg[[{81 {2558416400192166295 0 Append 0 x 0 44 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 44 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[81] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[81] Append (0 : x 0 44 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[82] Append  (0 : x 0 45 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 45 y}. (Index:82-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[82]
+kvs[4] leader cache Msg[[{82 {2558416400192166295 0 Append 0 x 0 45 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 45 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[82] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[82] Append (0 : x 0 45 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[83] Append  (0 : x 0 46 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 46 y}. (Index:83-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[83]
+kvs[4] leader cache Msg[[{83 {2558416400192166295 0 Append 0 x 0 46 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 46 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[83] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[83] Append (0 : x 0 46 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[84] Append  (0 : x 0 47 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 47 y}. (Index:84-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[84]
+kvs[4] leader cache Msg[[{84 {2558416400192166295 0 Append 0 x 0 47 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 47 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[84] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[84] Append (0 : x 0 47 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[85] Append  (0 : x 0 48 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 48 y}. (Index:85-Term:1-ok:true)
+		Leader[4] is alive
+kvs[4] leader get applied Message[85]
+kvs[4] leader cache Msg[[{85 {2558416400192166295 0 Append 0 x 0 48 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 48 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[85] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[85] Append (0 : x 0 48 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[86] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:86-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[86]
+kvs[4] leader cache Msg[[{86 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[86] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 y})
+Clerk[2558416400192166295] Uid[86] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 y] 结束循环
+
+Clerk[2558416400192166295] Uid[87] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:87-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[87]
+kvs[4] leader cache Msg[[{87 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[87] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 y})
+Clerk[2558416400192166295] Uid[87] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 y] 结束循环
+
+Clerk[2558416400192166295] uid[88] Append  (0 : x 0 49 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 49 y}. (Index:88-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[88]
+kvs[4] leader cache Msg[[{88 {2558416400192166295 0 Append 0 x 0 49 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 49 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[88] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[88] Append (0 : x 0 49 y) success, 结束循环
+
+Clerk[2558416400192166295] uid[89] Append  (0 : x 0 50 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 50 y}. (Index:89-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[89]
+kvs[4] leader cache Msg[[{89 {2558416400192166295 0 Append 0 x 0 50 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 50 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[89] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[89] Append (0 : x 0 50 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[90] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:90-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[90]
+kvs[4] leader cache Msg[[{90 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[90] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 y})
+Clerk[2558416400192166295] Uid[90] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 y] 结束循环
+
+Clerk[2558416400192166295] uid[91] Append  (0 : x 0 51 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 51 y}. (Index:91-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[91]
+kvs[4] leader cache Msg[[{91 {2558416400192166295 0 Append 0 x 0 51 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 51 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[91] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[91] Append (0 : x 0 51 y) success, 结束循环
+
+Clerk[2558416400192166295] Uid[92] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:92-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[92]
+kvs[4] leader cache Msg[[{92 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[2558416400192166295] Uid[92] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 y})
+Clerk[2558416400192166295] Uid[92] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 y] 结束循环
+
+Clerk[2558416400192166295] Uid[93] Get(0) ->S4
+kvs[4] [start] Get {2558416400192166295 0 Get 0 }. (Index:93-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[93]
+kvs[4] leader cache Msg[[{93 {2558416400192166295 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[2558416400192166295] Uid[93] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 y})
+Clerk[2558416400192166295] Uid[93] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 y] 结束循环
+
+Clerk[2558416400192166295] uid[94] Append  (0 : x 0 52 y) ->S4
+kvs[4] [start] Op_put_append {2558416400192166295 0 Append 0 x 0 52 y}. (Index:94-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[94]
+kvs[4] leader cache Msg[[{94 {2558416400192166295 0 Append 0 x 0 52 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{2558416400192166295 0 Append 0 x 0 52 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[2558416400192166295] uid[94] Append reply ok(true), reply({false })
+Clerk[2558416400192166295] uid[94] Append (0 : x 0 52 y) success, 结束循环
+
+Clerk[3495370157246653972] Uid[1] Get(0) ->S0
+kvs[2] [start] Get {3495370157246653972 0 Get 0 }. (Index:0-Term:0-ok:false)
+Clerk[3495370157246653972] Uid[1] Get(0) reply_ok(true), reply({true not leader! fail to add log to raft })
+
+Clerk[3495370157246653972] Uid[1] Get(0) ->S1
+kvs[0] [start] Get {3495370157246653972 0 Get 0 }. (Index:0-Term:0-ok:false)
+Clerk[3495370157246653972] Uid[1] Get(0) reply_ok(true), reply({true not leader! fail to add log to raft })
+
+Clerk[3495370157246653972] Uid[1] Get(0) ->S2
+kvs[4] [start] Get {3495370157246653972 0 Get 0 }. (Index:95-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[95]
+kvs[4] leader cache Msg[[{95 {3495370157246653972 0 Get 0 } false []}]]
+		Follower[3] is alive
+kvs[4] cache worker[3495370157246653972] 
+Clerk[3495370157246653972] Uid[1] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 yx 0 52 y})
+Clerk[3495370157246653972] Uid[1] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 yx 0 47 yx 0 48 yx 0 49 yx 0 50 yx 0 51 yx 0 52 y] 结束循环
+
+Clerk[3269676572342277946] uid[1] Put  (0 : ) ->S0
+kvs[0] [start] Op_put_append {3269676572342277946 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append {3269676572342277946 0 Put 0 }
+Clerk[3269676572342277946] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[3269676572342277946] uid[1] Put  (0 : ) ->S1
+kvs[1] [start] Op_put_append {3269676572342277946 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append {3269676572342277946 0 Put 0 }
+Clerk[3269676572342277946] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[3269676572342277946] uid[1] Put  (0 : ) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Put 0 }. (Index:96-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[96]
+kvs[4] leader cache Msg[[{96 {3269676572342277946 0 Put 0 } false []}]]
+kvs[4] cache worker[3269676572342277946] 
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Put 0 }] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[1] Put reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[1] Put (0 : ) success, 结束循环
+
+Clerk[3269676572342277946] uid[2] Append  (0 : x 0 0 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 0 y}. (Index:97-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[97]
+kvs[4] leader cache Msg[[{97 {3269676572342277946 0 Append 0 x 0 0 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 0 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[2] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[2] Append (0 : x 0 0 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[3] Append  (0 : x 0 1 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 1 y}. (Index:98-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[98]
+kvs[4] leader cache Msg[[{98 {3269676572342277946 0 Append 0 x 0 1 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 1 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[3] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[3] Append (0 : x 0 1 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[4] Append  (0 : x 0 2 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 2 y}. (Index:99-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[99]
+kvs[4] leader cache Msg[[{99 {3269676572342277946 0 Append 0 x 0 2 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 2 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[4] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[4] Append (0 : x 0 2 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[5] Append  (0 : x 0 3 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 3 y}. (Index:100-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[100]
+kvs[4] leader cache Msg[[{100 {3269676572342277946 0 Append 0 x 0 3 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 3 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[5] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[5] Append (0 : x 0 3 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[6] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:101-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[101]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{101 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[6] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 y})
+Clerk[3269676572342277946] Uid[6] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 y] 结束循环
+
+Clerk[3269676572342277946] uid[7] Append  (0 : x 0 4 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 4 y}. (Index:102-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[102]
+kvs[4] leader cache Msg[[{102 {3269676572342277946 0 Append 0 x 0 4 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 4 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[7] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[7] Append (0 : x 0 4 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[8] Append  (0 : x 0 5 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 5 y}. (Index:103-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[103]
+kvs[4] leader cache Msg[[{103 {3269676572342277946 0 Append 0 x 0 5 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 5 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[8] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[8] Append (0 : x 0 5 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[9] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:104-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[104]
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{104 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[9] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[3269676572342277946] Uid[9] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[3269676572342277946] uid[10] Append  (0 : x 0 6 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 6 y}. (Index:105-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[105]
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{105 {3269676572342277946 0 Append 0 x 0 6 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 6 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[10] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[10] Append (0 : x 0 6 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[11] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:106-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[106]
+kvs[4] leader cache Msg[[{106 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[3] is alive
+Clerk[3269676572342277946] Uid[11] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[11] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] Uid[12] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:107-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[107]
+kvs[4] leader cache Msg[[{107 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[12] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[12] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] Uid[13] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:108-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[108]
+kvs[4] leader cache Msg[[{108 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[13] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[13] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] Uid[14] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:109-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[109]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{109 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[14] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[14] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] Uid[15] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:110-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[110]
+kvs[4] leader cache Msg[[{110 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[3] is alive
+Clerk[3269676572342277946] Uid[15] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[15] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] Uid[16] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:111-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[111]
+kvs[4] leader cache Msg[[{111 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[16] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[3269676572342277946] Uid[16] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[3269676572342277946] uid[17] Append  (0 : x 0 7 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 7 y}. (Index:112-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[112]
+kvs[4] leader cache Msg[[{112 {3269676572342277946 0 Append 0 x 0 7 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 7 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[17] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[17] Append (0 : x 0 7 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[18] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:113-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[113]
+kvs[4] leader cache Msg[[{113 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[18] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y})
+Clerk[3269676572342277946] Uid[18] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y] 结束循环
+
+Clerk[3269676572342277946] Uid[19] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:114-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[114]
+kvs[4] leader cache Msg[[{114 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[19] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y})
+Clerk[3269676572342277946] Uid[19] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y] 结束循环
+
+Clerk[3269676572342277946] Uid[20] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:115-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[115]
+kvs[4] leader cache Msg[[{115 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[20] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y})
+Clerk[3269676572342277946] Uid[20] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y] 结束循环
+
+Clerk[3269676572342277946] Uid[21] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:116-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[116]
+kvs[4] leader cache Msg[[{116 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[21] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y})
+Clerk[3269676572342277946] Uid[21] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 y] 结束循环
+
+Clerk[3269676572342277946] uid[22] Append  (0 : x 0 8 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 8 y}. (Index:117-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[117]
+kvs[4] leader cache Msg[[{117 {3269676572342277946 0 Append 0 x 0 8 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 8 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[22] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[22] Append (0 : x 0 8 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[23] Append  (0 : x 0 9 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 9 y}. (Index:118-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[118]
+kvs[4] leader cache Msg[[{118 {3269676572342277946 0 Append 0 x 0 9 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 9 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[23] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[23] Append (0 : x 0 9 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[24] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:119-Term:1-ok:true)
+		Leader[4] is alive
+kvs[4] leader get applied Message[119]
+kvs[4] leader cache Msg[[{119 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[24] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[3269676572342277946] Uid[24] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[3269676572342277946] uid[25] Append  (0 : x 0 10 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 10 y}. (Index:120-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[120]
+kvs[4] leader cache Msg[[{120 {3269676572342277946 0 Append 0 x 0 10 y} false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 10 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[25] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[25] Append (0 : x 0 10 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[26] Append  (0 : x 0 11 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 11 y}. (Index:121-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[121]
+kvs[4] leader cache Msg[[{121 {3269676572342277946 0 Append 0 x 0 11 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 11 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[26] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[26] Append (0 : x 0 11 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[27] Append  (0 : x 0 12 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 12 y}. (Index:122-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[122]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{122 {3269676572342277946 0 Append 0 x 0 12 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 12 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[27] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[27] Append (0 : x 0 12 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[28] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:123-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[123]
+kvs[4] leader cache Msg[[{123 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[28] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 y})
+Clerk[3269676572342277946] Uid[28] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 y] 结束循环
+
+Clerk[3269676572342277946] uid[29] Append  (0 : x 0 13 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 13 y}. (Index:124-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[124]
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{124 {3269676572342277946 0 Append 0 x 0 13 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 13 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[29] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[29] Append (0 : x 0 13 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[30] Append  (0 : x 0 14 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 14 y}. (Index:125-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[125]
+kvs[4] leader cache Msg[[{125 {3269676572342277946 0 Append 0 x 0 14 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 14 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[30] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[30] Append (0 : x 0 14 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[31] Append  (0 : x 0 15 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 15 y}. (Index:126-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[126]
+kvs[4] leader cache Msg[[{126 {3269676572342277946 0 Append 0 x 0 15 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 15 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[31] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[31] Append (0 : x 0 15 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[32] Append  (0 : x 0 16 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 16 y}. (Index:127-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[127]
+kvs[4] leader cache Msg[[{127 {3269676572342277946 0 Append 0 x 0 16 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 16 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[32] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[32] Append (0 : x 0 16 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[33] Append  (0 : x 0 17 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 17 y}. (Index:128-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[128]
+kvs[4] leader cache Msg[[{128 {3269676572342277946 0 Append 0 x 0 17 y} false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 17 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[33] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[33] Append (0 : x 0 17 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[34] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:129-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[129]
+kvs[4] leader cache Msg[[{129 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[34] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 y})
+Clerk[3269676572342277946] Uid[34] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 y] 结束循环
+
+Clerk[3269676572342277946] uid[35] Append  (0 : x 0 18 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 18 y}. (Index:130-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[130]
+kvs[4] leader cache Msg[[{130 {3269676572342277946 0 Append 0 x 0 18 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 18 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[35] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[35] Append (0 : x 0 18 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[36] Append  (0 : x 0 19 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 19 y}. (Index:131-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[131]
+kvs[4] leader cache Msg[[{131 {3269676572342277946 0 Append 0 x 0 19 y} false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 19 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[36] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[36] Append (0 : x 0 19 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[37] Append  (0 : x 0 20 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 20 y}. (Index:132-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[132]
+kvs[4] leader cache Msg[[{132 {3269676572342277946 0 Append 0 x 0 20 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 20 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[37] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[37] Append (0 : x 0 20 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[38] Append  (0 : x 0 21 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 21 y}. (Index:133-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[133]
+kvs[4] leader cache Msg[[{133 {3269676572342277946 0 Append 0 x 0 21 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 21 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+		Follower[0] is alive
+		Follower[3] is alive
+Clerk[3269676572342277946] uid[38] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[38] Append (0 : x 0 21 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[39] Append  (0 : x 0 22 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 22 y}. (Index:134-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[134]
+kvs[4] leader cache Msg[[{134 {3269676572342277946 0 Append 0 x 0 22 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 22 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[39] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[39] Append (0 : x 0 22 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[40] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:135-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[135]
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{135 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[40] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 y})
+Clerk[3269676572342277946] Uid[40] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 y] 结束循环
+
+Clerk[3269676572342277946] uid[41] Append  (0 : x 0 23 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 23 y}. (Index:136-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[136]
+kvs[4] leader cache Msg[[{136 {3269676572342277946 0 Append 0 x 0 23 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 23 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[41] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[41] Append (0 : x 0 23 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[42] Append  (0 : x 0 24 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 24 y}. (Index:137-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[137]
+kvs[4] leader cache Msg[[{137 {3269676572342277946 0 Append 0 x 0 24 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 24 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[42] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[42] Append (0 : x 0 24 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[43] Append  (0 : x 0 25 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 25 y}. (Index:138-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[138]
+kvs[4] leader cache Msg[[{138 {3269676572342277946 0 Append 0 x 0 25 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 25 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[43] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[43] Append (0 : x 0 25 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[44] Append  (0 : x 0 26 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 26 y}. (Index:139-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[139]
+kvs[4] leader cache Msg[[{139 {3269676572342277946 0 Append 0 x 0 26 y} false []}]]
+		Follower[1] is alive
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 26 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[44] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[44] Append (0 : x 0 26 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[45] Append  (0 : x 0 27 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 27 y}. (Index:140-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[140]
+kvs[4] leader cache Msg[[{140 {3269676572342277946 0 Append 0 x 0 27 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 27 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[45] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[45] Append (0 : x 0 27 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[46] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:141-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[141]
+kvs[4] leader cache Msg[[{141 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[46] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y})
+Clerk[3269676572342277946] Uid[46] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y] 结束循环
+
+Clerk[3269676572342277946] Uid[47] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:142-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[142]
+kvs[4] leader cache Msg[[{142 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[47] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y})
+Clerk[3269676572342277946] Uid[47] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y] 结束循环
+
+Clerk[3269676572342277946] Uid[48] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:143-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[143]
+kvs[4] leader cache Msg[[{143 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[48] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y})
+Clerk[3269676572342277946] Uid[48] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 y] 结束循环
+
+Clerk[3269676572342277946] uid[49] Append  (0 : x 0 28 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 28 y}. (Index:144-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[144]
+kvs[4] leader cache Msg[[{144 {3269676572342277946 0 Append 0 x 0 28 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 28 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[49] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[49] Append (0 : x 0 28 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[50] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:145-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[145]
+kvs[4] leader cache Msg[[{145 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[50] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y})
+Clerk[3269676572342277946] Uid[50] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y] 结束循环
+
+Clerk[3269676572342277946] uid[51] Append  (0 : x 0 29 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 29 y}. (Index:146-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[146]
+kvs[4] leader cache Msg[[{146 {3269676572342277946 0 Append 0 x 0 29 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 29 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[51] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[51] Append (0 : x 0 29 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[52] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:147-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[147]
+kvs[4] leader cache Msg[[{147 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[52] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 y})
+Clerk[3269676572342277946] Uid[52] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 y] 结束循环
+
+Clerk[3269676572342277946] Uid[53] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:148-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[148]
+kvs[4] leader cache Msg[[{148 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[53] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 y})
+Clerk[3269676572342277946] Uid[53] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 y] 结束循环
+
+Clerk[3269676572342277946] uid[54] Append  (0 : x 0 30 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 30 y}. (Index:149-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[149]
+kvs[4] leader cache Msg[[{149 {3269676572342277946 0 Append 0 x 0 30 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 30 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[54] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[54] Append (0 : x 0 30 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[55] Append  (0 : x 0 31 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 31 y}. (Index:150-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[150]
+kvs[4] leader cache Msg[[{150 {3269676572342277946 0 Append 0 x 0 31 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 31 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[55] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[55] Append (0 : x 0 31 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[56] Append  (0 : x 0 32 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 32 y}. (Index:151-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[151]
+kvs[4] leader cache Msg[[{151 {3269676572342277946 0 Append 0 x 0 32 y} false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 32 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[56] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[56] Append (0 : x 0 32 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[57] Append  (0 : x 0 33 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 33 y}. (Index:152-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[152]
+kvs[4] leader cache Msg[[{152 {3269676572342277946 0 Append 0 x 0 33 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 33 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[57] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[57] Append (0 : x 0 33 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[58] Append  (0 : x 0 34 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 34 y}. (Index:153-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[153]
+kvs[4] leader cache Msg[[{153 {3269676572342277946 0 Append 0 x 0 34 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 34 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[58] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[58] Append (0 : x 0 34 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[59] Append  (0 : x 0 35 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 35 y}. (Index:154-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[154]
+kvs[4] leader cache Msg[[{154 {3269676572342277946 0 Append 0 x 0 35 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 35 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[59] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[59] Append (0 : x 0 35 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[60] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:155-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[155]
+kvs[4] leader cache Msg[[{155 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[3269676572342277946] Uid[60] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 y})
+Clerk[3269676572342277946] Uid[60] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 y] 结束循环
+
+Clerk[3269676572342277946] uid[61] Append  (0 : x 0 36 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 36 y}. (Index:156-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[156]
+kvs[4] leader cache Msg[[{156 {3269676572342277946 0 Append 0 x 0 36 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 36 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[61] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[61] Append (0 : x 0 36 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[62] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:157-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[157]
+kvs[4] leader cache Msg[[{157 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[62] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 y})
+Clerk[3269676572342277946] Uid[62] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 y] 结束循环
+
+Clerk[3269676572342277946] uid[63] Append  (0 : x 0 37 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 37 y}. (Index:158-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[158]
+kvs[4] leader cache Msg[[{158 {3269676572342277946 0 Append 0 x 0 37 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 37 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[63] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[63] Append (0 : x 0 37 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[64] Append  (0 : x 0 38 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 38 y}. (Index:159-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[159]
+kvs[4] leader cache Msg[[{159 {3269676572342277946 0 Append 0 x 0 38 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 38 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[64] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[64] Append (0 : x 0 38 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[65] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:160-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[160]
+kvs[4] leader cache Msg[[{160 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[65] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 y})
+Clerk[3269676572342277946] Uid[65] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 y] 结束循环
+
+Clerk[3269676572342277946] Uid[66] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:161-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[161]
+kvs[4] leader cache Msg[[{161 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[66] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 y})
+Clerk[3269676572342277946] Uid[66] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 y] 结束循环
+
+Clerk[3269676572342277946] uid[67] Append  (0 : x 0 39 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 39 y}. (Index:162-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[162]
+kvs[4] leader cache Msg[[{162 {3269676572342277946 0 Append 0 x 0 39 y} false []}]]
+		Follower[0] is alive
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 39 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[67] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[67] Append (0 : x 0 39 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[68] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:163-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[163]
+kvs[4] leader cache Msg[[{163 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[68] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 y})
+Clerk[3269676572342277946] Uid[68] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 y] 结束循环
+
+Clerk[3269676572342277946] uid[69] Append  (0 : x 0 40 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 40 y}. (Index:164-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[164]
+kvs[4] leader cache Msg[[{164 {3269676572342277946 0 Append 0 x 0 40 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 40 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[69] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[69] Append (0 : x 0 40 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[70] Append  (0 : x 0 41 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 41 y}. (Index:165-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[165]
+kvs[4] leader cache Msg[[{165 {3269676572342277946 0 Append 0 x 0 41 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 41 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[70] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[70] Append (0 : x 0 41 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[71] Append  (0 : x 0 42 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 42 y}. (Index:166-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[166]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{166 {3269676572342277946 0 Append 0 x 0 42 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 42 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[71] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[71] Append (0 : x 0 42 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[72] Append  (0 : x 0 43 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 43 y}. (Index:167-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[167]
+kvs[4] leader cache Msg[[{167 {3269676572342277946 0 Append 0 x 0 43 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 43 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[72] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[72] Append (0 : x 0 43 y) success, 结束循环
+
+Clerk[3269676572342277946] uid[73] Append  (0 : x 0 44 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 44 y}. (Index:168-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[168]
+kvs[4] leader cache Msg[[{168 {3269676572342277946 0 Append 0 x 0 44 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 44 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[73] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[73] Append (0 : x 0 44 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[74] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:169-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[169]
+kvs[4] leader cache Msg[[{169 {3269676572342277946 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[3269676572342277946] Uid[74] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 y})
+Clerk[3269676572342277946] Uid[74] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 y] 结束循环
+
+Clerk[3269676572342277946] uid[75] Append  (0 : x 0 45 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 45 y}. (Index:170-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[170]
+kvs[4] leader cache Msg[[{170 {3269676572342277946 0 Append 0 x 0 45 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 45 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[75] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[75] Append (0 : x 0 45 y) success, 结束循环
+
+Clerk[3269676572342277946] Uid[76] Get(0) ->S2
+kvs[4] [start] Get {3269676572342277946 0 Get 0 }. (Index:171-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[171]
+kvs[4] leader cache Msg[[{171 {3269676572342277946 0 Get 0 } false []}]]
+Clerk[3269676572342277946] Uid[76] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 y})
+Clerk[3269676572342277946] Uid[76] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 y] 结束循环
+
+Clerk[3269676572342277946] uid[77] Append  (0 : x 0 46 y) ->S2
+kvs[4] [start] Op_put_append {3269676572342277946 0 Append 0 x 0 46 y}. (Index:172-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[172]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{172 {3269676572342277946 0 Append 0 x 0 46 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{3269676572342277946 0 Append 0 x 0 46 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[3269676572342277946] uid[77] Append reply ok(true), reply({false })
+Clerk[3269676572342277946] uid[77] Append (0 : x 0 46 y) success, 结束循环
+
+Clerk[3495370157246653972] Uid[2] Get(0) ->S2
+kvs[4] [start] Get {3495370157246653972 0 Get 0 }. (Index:173-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[173]
+kvs[4] leader cache Msg[[{173 {3495370157246653972 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[3495370157246653972] Uid[2] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 y})
+Clerk[3495370157246653972] Uid[2] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 yx 0 29 yx 0 30 yx 0 31 yx 0 32 yx 0 33 yx 0 34 yx 0 35 yx 0 36 yx 0 37 yx 0 38 yx 0 39 yx 0 40 yx 0 41 yx 0 42 yx 0 43 yx 0 44 yx 0 45 yx 0 46 y] 结束循环
+
+Clerk[893168502938231962] uid[1] Put  (0 : ) ->S0
+kvs[2] [start] Op_put_append {893168502938231962 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append {893168502938231962 0 Put 0 }
+Clerk[893168502938231962] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[893168502938231962] uid[1] Put  (0 : ) ->S1
+kvs[3] [start] Op_put_append {893168502938231962 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[3] [False1] Op_put_append {893168502938231962 0 Put 0 }
+Clerk[893168502938231962] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[893168502938231962] uid[1] Put  (0 : ) ->S2
+kvs[0] [start] Op_put_append {893168502938231962 0 Put 0 }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append {893168502938231962 0 Put 0 }
+Clerk[893168502938231962] uid[1] Put reply ok(true), reply({true not leader! fail to add log to raft})
+
+Clerk[893168502938231962] uid[1] Put  (0 : ) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Put 0 }. (Index:174-Term:1-ok:true)
+		Leader[4] is alive
+kvs[4] leader get applied Message[174]
+kvs[4] leader cache Msg[[{174 {893168502938231962 0 Put 0 } false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] cache worker[893168502938231962] 
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Put 0 }] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[1] Put reply ok(true), reply({false })
+Clerk[893168502938231962] uid[1] Put (0 : ) success, 结束循环
+
+Clerk[893168502938231962] Uid[2] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:175-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[175]
+kvs[4] leader cache Msg[[{175 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[2] Get(0) reply_ok(true), reply({false  })
+Clerk[893168502938231962] Uid[2] Get(0) success, reply_value[] 结束循环
+
+Clerk[893168502938231962] uid[3] Append  (0 : x 0 0 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 0 y}. (Index:176-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[176]
+kvs[4] leader cache Msg[[{176 {893168502938231962 0 Append 0 x 0 0 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 0 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[3] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[3] Append (0 : x 0 0 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[4] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:177-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[177]
+kvs[4] leader cache Msg[[{177 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[4] Get(0) reply_ok(true), reply({false  x 0 0 y})
+Clerk[893168502938231962] Uid[4] Get(0) success, reply_value[x 0 0 y] 结束循环
+
+Clerk[893168502938231962] Uid[5] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:178-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[178]
+kvs[4] leader cache Msg[[{178 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[5] Get(0) reply_ok(true), reply({false  x 0 0 y})
+Clerk[893168502938231962] Uid[5] Get(0) success, reply_value[x 0 0 y] 结束循环
+
+Clerk[893168502938231962] Uid[6] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:179-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[179]
+kvs[4] leader cache Msg[[{179 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[6] Get(0) reply_ok(true), reply({false  x 0 0 y})
+Clerk[893168502938231962] Uid[6] Get(0) success, reply_value[x 0 0 y] 结束循环
+
+Clerk[893168502938231962] Uid[7] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:180-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[180]
+kvs[4] leader cache Msg[[{180 {893168502938231962 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[893168502938231962] Uid[7] Get(0) reply_ok(true), reply({false  x 0 0 y})
+Clerk[893168502938231962] Uid[7] Get(0) success, reply_value[x 0 0 y] 结束循环
+
+Clerk[893168502938231962] uid[8] Append  (0 : x 0 1 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 1 y}. (Index:181-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[181]
+kvs[4] leader cache Msg[[{181 {893168502938231962 0 Append 0 x 0 1 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 1 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[8] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[8] Append (0 : x 0 1 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[9] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:182-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[182]
+kvs[4] leader cache Msg[[{182 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[9] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 y})
+Clerk[893168502938231962] Uid[9] Get(0) success, reply_value[x 0 0 yx 0 1 y] 结束循环
+
+Clerk[893168502938231962] uid[10] Append  (0 : x 0 2 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 2 y}. (Index:183-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[183]
+kvs[4] leader cache Msg[[{183 {893168502938231962 0 Append 0 x 0 2 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 2 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[10] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[10] Append (0 : x 0 2 y) success, 结束循环
+
+Clerk[893168502938231962] uid[11] Append  (0 : x 0 3 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 3 y}. (Index:184-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[184]
+kvs[4] leader cache Msg[[{184 {893168502938231962 0 Append 0 x 0 3 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 3 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[11] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[11] Append (0 : x 0 3 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[12] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:185-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[185]
+kvs[4] leader cache Msg[[{185 {893168502938231962 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[893168502938231962] Uid[12] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 y})
+Clerk[893168502938231962] Uid[12] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 y] 结束循环
+
+Clerk[893168502938231962] Uid[13] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:186-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[186]
+kvs[4] leader cache Msg[[{186 {893168502938231962 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[893168502938231962] Uid[13] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 y})
+Clerk[893168502938231962] Uid[13] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 y] 结束循环
+
+Clerk[893168502938231962] uid[14] Append  (0 : x 0 4 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 4 y}. (Index:187-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[187]
+kvs[4] leader cache Msg[[{187 {893168502938231962 0 Append 0 x 0 4 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 4 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[14] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[14] Append (0 : x 0 4 y) success, 结束循环
+
+Clerk[893168502938231962] uid[15] Append  (0 : x 0 5 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 5 y}. (Index:188-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[188]
+kvs[4] leader cache Msg[[{188 {893168502938231962 0 Append 0 x 0 5 y} false []}]]
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 5 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[15] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[15] Append (0 : x 0 5 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[16] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:189-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[189]
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{189 {893168502938231962 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[893168502938231962] Uid[16] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[893168502938231962] Uid[16] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[893168502938231962] Uid[17] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:190-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[190]
+kvs[4] leader cache Msg[[{190 {893168502938231962 0 Get 0 } false []}]]
+		Follower[1] is alive
+Clerk[893168502938231962] Uid[17] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[893168502938231962] Uid[17] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[893168502938231962] Uid[18] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:191-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[191]
+kvs[4] leader cache Msg[[{191 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[18] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[893168502938231962] Uid[18] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[893168502938231962] Uid[19] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:192-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[192]
+kvs[4] leader cache Msg[[{192 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[19] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y})
+Clerk[893168502938231962] Uid[19] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 y] 结束循环
+
+Clerk[893168502938231962] uid[20] Append  (0 : x 0 6 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 6 y}. (Index:193-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[193]
+kvs[4] leader cache Msg[[{193 {893168502938231962 0 Append 0 x 0 6 y} false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 6 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[20] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[20] Append (0 : x 0 6 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[21] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:194-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[194]
+kvs[4] leader cache Msg[[{194 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[21] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[893168502938231962] Uid[21] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[893168502938231962] Uid[22] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:195-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[195]
+kvs[4] leader cache Msg[[{195 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[22] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[893168502938231962] Uid[22] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[893168502938231962] Uid[23] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:196-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[196]
+kvs[4] leader cache Msg[[{196 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[23] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[893168502938231962] Uid[23] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[893168502938231962] Uid[24] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:197-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[197]
+kvs[4] leader cache Msg[[{197 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[24] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y})
+Clerk[893168502938231962] Uid[24] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 y] 结束循环
+
+Clerk[893168502938231962] uid[25] Append  (0 : x 0 7 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 7 y}. (Index:198-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[198]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{198 {893168502938231962 0 Append 0 x 0 7 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 7 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[25] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[25] Append (0 : x 0 7 y) success, 结束循环
+
+Clerk[893168502938231962] uid[26] Append  (0 : x 0 8 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 8 y}. (Index:199-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[199]
+kvs[4] leader cache Msg[[{199 {893168502938231962 0 Append 0 x 0 8 y} false []}]]
+		Follower[0] is alive
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 8 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[26] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[26] Append (0 : x 0 8 y) success, 结束循环
+
+Clerk[893168502938231962] uid[27] Append  (0 : x 0 9 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 9 y}. (Index:200-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[200]
+kvs[4] leader cache Msg[[{200 {893168502938231962 0 Append 0 x 0 9 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 9 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[27] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[27] Append (0 : x 0 9 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[28] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:201-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[201]
+kvs[4] leader cache Msg[[{201 {893168502938231962 0 Get 0 } false []}]]
+		Follower[1] is alive
+		Follower[3] is alive
+Clerk[893168502938231962] Uid[28] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[893168502938231962] Uid[28] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[893168502938231962] Uid[29] Get(0) ->S3
+		Follower[0] is alive
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:202-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[202]
+kvs[4] leader cache Msg[[{202 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[29] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[893168502938231962] Uid[29] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[893168502938231962] Uid[30] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:203-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[203]
+kvs[4] leader cache Msg[[{203 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[30] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[893168502938231962] Uid[30] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[893168502938231962] Uid[31] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:204-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[204]
+kvs[4] leader cache Msg[[{204 {893168502938231962 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+Clerk[893168502938231962] Uid[31] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y})
+Clerk[893168502938231962] Uid[31] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 y] 结束循环
+
+Clerk[893168502938231962] uid[32] Append  (0 : x 0 10 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 10 y}. (Index:205-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[205]
+kvs[4] leader cache Msg[[{205 {893168502938231962 0 Append 0 x 0 10 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 10 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[32] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[32] Append (0 : x 0 10 y) success, 结束循环
+
+Clerk[893168502938231962] uid[33] Append  (0 : x 0 11 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 11 y}. (Index:206-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[206]
+kvs[4] leader cache Msg[[{206 {893168502938231962 0 Append 0 x 0 11 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 11 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[33] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[33] Append (0 : x 0 11 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[34] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:207-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[207]
+kvs[4] leader cache Msg[[{207 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[34] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y})
+Clerk[893168502938231962] Uid[34] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y] 结束循环
+
+Clerk[893168502938231962] Uid[35] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:208-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[208]
+kvs[4] leader cache Msg[[{208 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[35] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y})
+Clerk[893168502938231962] Uid[35] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 y] 结束循环
+
+Clerk[893168502938231962] uid[36] Append  (0 : x 0 12 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 12 y}. (Index:209-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[209]
+kvs[4] leader cache Msg[[{209 {893168502938231962 0 Append 0 x 0 12 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 12 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[36] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[36] Append (0 : x 0 12 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[37] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:210-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[210]
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{210 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[37] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 y})
+Clerk[893168502938231962] Uid[37] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 y] 结束循环
+
+Clerk[893168502938231962] uid[38] Append  (0 : x 0 13 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 13 y}. (Index:211-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[211]
+kvs[4] leader cache Msg[[{211 {893168502938231962 0 Append 0 x 0 13 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 13 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[38] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[38] Append (0 : x 0 13 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[39] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:212-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[212]
+kvs[4] leader cache Msg[[{212 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[39] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y})
+Clerk[893168502938231962] Uid[39] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y] 结束循环
+
+Clerk[893168502938231962] Uid[40] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:213-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[213]
+kvs[4] leader cache Msg[[{213 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[40] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y})
+Clerk[893168502938231962] Uid[40] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 y] 结束循环
+
+Clerk[893168502938231962] uid[41] Append  (0 : x 0 14 y) ->S3
+		Follower[3] is alive
+		Follower[1] is alive
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 14 y}. (Index:214-Term:1-ok:true)
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[214]
+kvs[4] leader cache Msg[[{214 {893168502938231962 0 Append 0 x 0 14 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 14 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[41] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[41] Append (0 : x 0 14 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[42] Get(0) ->S3
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:215-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[215]
+kvs[4] leader cache Msg[[{215 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[42] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y})
+Clerk[893168502938231962] Uid[42] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y] 结束循环
+
+Clerk[893168502938231962] Uid[43] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:216-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[216]
+kvs[4] leader cache Msg[[{216 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[43] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y})
+Clerk[893168502938231962] Uid[43] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y] 结束循环
+
+Clerk[893168502938231962] Uid[44] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:217-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[217]
+kvs[4] leader cache Msg[[{217 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[44] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y})
+Clerk[893168502938231962] Uid[44] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 y] 结束循环
+
+Clerk[893168502938231962] uid[45] Append  (0 : x 0 15 y) ->S3
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 15 y}. (Index:218-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[218]
+kvs[4] leader cache Msg[[{218 {893168502938231962 0 Append 0 x 0 15 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 15 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[45] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[45] Append (0 : x 0 15 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[46] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:219-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[219]
+kvs[4] leader cache Msg[[{219 {893168502938231962 0 Get 0 } false []}]]
+		Follower[0] is alive
+Clerk[893168502938231962] Uid[46] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 y})
+Clerk[893168502938231962] Uid[46] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 y] 结束循环
+
+Clerk[893168502938231962] Uid[47] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:220-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[220]
+kvs[4] leader cache Msg[[{220 {893168502938231962 0 Get 0 } false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+Clerk[893168502938231962] Uid[47] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 y})
+Clerk[893168502938231962] Uid[47] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 y] 结束循环
+
+Clerk[893168502938231962] uid[48] Append  (0 : x 0 16 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 16 y}. (Index:221-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[221]
+kvs[4] leader cache Msg[[{221 {893168502938231962 0 Append 0 x 0 16 y} false []}]]
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 16 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[48] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[48] Append (0 : x 0 16 y) success, 结束循环
+
+Clerk[893168502938231962] uid[49] Append  (0 : x 0 17 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 17 y}. (Index:222-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[222]
+		Follower[1] is alive
+kvs[4] leader cache Msg[[{222 {893168502938231962 0 Append 0 x 0 17 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 17 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[49] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[49] Append (0 : x 0 17 y) success, 结束循环
+
+Clerk[893168502938231962] uid[50] Append  (0 : x 0 18 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 18 y}. (Index:223-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[223]
+kvs[4] leader cache Msg[[{223 {893168502938231962 0 Append 0 x 0 18 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 18 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[50] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[50] Append (0 : x 0 18 y) success, 结束循环
+
+Clerk[893168502938231962] uid[51] Append  (0 : x 0 19 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 19 y}. (Index:224-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[224]
+kvs[4] leader cache Msg[[{224 {893168502938231962 0 Append 0 x 0 19 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 19 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[51] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[51] Append (0 : x 0 19 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[52] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:225-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[225]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{225 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[52] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y})
+Clerk[893168502938231962] Uid[52] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y] 结束循环
+
+Clerk[893168502938231962] Uid[53] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:226-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[226]
+kvs[4] leader cache Msg[[{226 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[53] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y})
+Clerk[893168502938231962] Uid[53] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 y] 结束循环
+
+Clerk[893168502938231962] uid[54] Append  (0 : x 0 20 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 20 y}. (Index:227-Term:1-ok:true)
+		Follower[1] is alive
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[227]
+kvs[4] leader cache Msg[[{227 {893168502938231962 0 Append 0 x 0 20 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 20 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[54] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[54] Append (0 : x 0 20 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[55] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:228-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[228]
+kvs[4] leader cache Msg[[{228 {893168502938231962 0 Get 0 } false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+Clerk[893168502938231962] Uid[55] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y})
+Clerk[893168502938231962] Uid[55] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 y] 结束循环
+
+Clerk[893168502938231962] uid[56] Append  (0 : x 0 21 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 21 y}. (Index:229-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[229]
+kvs[4] leader cache Msg[[{229 {893168502938231962 0 Append 0 x 0 21 y} false []}]]
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 21 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[56] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[56] Append (0 : x 0 21 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[57] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:230-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[230]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] leader cache Msg[[{230 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[57] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 y})
+Clerk[893168502938231962] Uid[57] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 y] 结束循环
+
+Clerk[893168502938231962] uid[58] Append  (0 : x 0 22 y) ->S3
+		Follower[0] is alive
+		Follower[3] is alive
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 22 y}. (Index:231-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[231]
+kvs[4] leader cache Msg[[{231 {893168502938231962 0 Append 0 x 0 22 y} false []}]]
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 22 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[58] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[58] Append (0 : x 0 22 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[59] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:232-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[232]
+kvs[4] leader cache Msg[[{232 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[59] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 y})
+Clerk[893168502938231962] Uid[59] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 y] 结束循环
+
+Clerk[893168502938231962] uid[60] Append  (0 : x 0 23 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 23 y}. (Index:233-Term:1-ok:true)
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[233]
+kvs[4] leader cache Msg[[{233 {893168502938231962 0 Append 0 x 0 23 y} false []}]]
+		Follower[3] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 23 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[60] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[60] Append (0 : x 0 23 y) success, 结束循环
+
+Clerk[893168502938231962] uid[61] Append  (0 : x 0 24 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 24 y}. (Index:234-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[234]
+kvs[4] leader cache Msg[[{234 {893168502938231962 0 Append 0 x 0 24 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 24 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[61] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[61] Append (0 : x 0 24 y) success, 结束循环
+
+Clerk[893168502938231962] Uid[62] Get(0) ->S3
+kvs[4] [start] Get {893168502938231962 0 Get 0 }. (Index:235-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[235]
+kvs[4] leader cache Msg[[{235 {893168502938231962 0 Get 0 } false []}]]
+Clerk[893168502938231962] Uid[62] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 y})
+Clerk[893168502938231962] Uid[62] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 y] 结束循环
+
+Clerk[893168502938231962] uid[63] Append  (0 : x 0 25 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 25 y}. (Index:236-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[236]
+kvs[4] leader cache Msg[[{236 {893168502938231962 0 Append 0 x 0 25 y} false []}]]
+		Follower[1] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 25 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[63] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[63] Append (0 : x 0 25 y) success, 结束循环
+
+Clerk[893168502938231962] uid[64] Append  (0 : x 0 26 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 26 y}. (Index:237-Term:1-ok:true)
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[237]
+kvs[4] leader cache Msg[[{237 {893168502938231962 0 Append 0 x 0 26 y} false []}]]
+		Follower[3] is alive
+		Follower[0] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 26 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[64] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[64] Append (0 : x 0 26 y) success, 结束循环
+
+Clerk[893168502938231962] uid[65] Append  (0 : x 0 27 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 27 y}. (Index:238-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[238]
+kvs[4] leader cache Msg[[{238 {893168502938231962 0 Append 0 x 0 27 y} false []}]]
+		Follower[0] is alive
+		Follower[1] is alive
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 27 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[65] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[65] Append (0 : x 0 27 y) success, 结束循环
+
+Clerk[893168502938231962] uid[66] Append  (0 : x 0 28 y) ->S3
+kvs[4] [start] Op_put_append {893168502938231962 0 Append 0 x 0 28 y}. (Index:239-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[1] is alive
+		Follower[0] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[239]
+kvs[4] leader cache Msg[[{239 {893168502938231962 0 Append 0 x 0 28 y} false []}]]
+kvs[4] [Sucess] Op_put_append[{893168502938231962 0 Append 0 x 0 28 y}] reply[&{false }]
+kvs[4] [Done signal] log applied done
+Clerk[893168502938231962] uid[66] Append reply ok(true), reply({false })
+Clerk[893168502938231962] uid[66] Append (0 : x 0 28 y) success, 结束循环
+
+Clerk[3495370157246653972] Uid[3] Get(0) ->S2
+kvs[4] [start] Get {3495370157246653972 0 Get 0 }. (Index:240-Term:1-ok:true)
+		Follower[3] is alive
+		Follower[0] is alive
+		Follower[1] is alive
+		Leader[4] is alive
+kvs[4] leader get applied Message[240]
+kvs[4] leader cache Msg[[{240 {3495370157246653972 0 Get 0 } false []}]]
+Clerk[3495370157246653972] Uid[3] Get(0) reply_ok(true), reply({false  x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y})
+Clerk[3495370157246653972] Uid[3] Get(0) success, reply_value[x 0 0 yx 0 1 yx 0 2 yx 0 3 yx 0 4 yx 0 5 yx 0 6 yx 0 7 yx 0 8 yx 0 9 yx 0 10 yx 0 11 yx 0 12 yx 0 13 yx 0 14 yx 0 15 yx 0 16 yx 0 17 yx 0 18 yx 0 19 yx 0 20 yx 0 21 yx 0 22 yx 0 23 yx 0 24 yx 0 25 yx 0 26 yx 0 27 yx 0 28 y] 结束循环
+  ... Passed
+--- PASS: TestBasic (15.25s)
+PASS
+ok  	src/kvraft	15.254s
