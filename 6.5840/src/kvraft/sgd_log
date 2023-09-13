@@ -1,0 +1,717 @@
+start kv server 0
+start kv server 1
+start kv server 2
+start kv server 3
+start kv server 4
+Test: many clients (3A) ...
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S0
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S0
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S0
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S0
+kvs[0] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }
+kvs[0] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }
+kvs[4] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S0
+kvs[1] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[4] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+kvs[4] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S1
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S1
+kvs[3] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S1
+kvs[4] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[3] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+kvs[4] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[4] [False1] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }
+kvs[1] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:0-Term:0-ok:false)
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S2
+kvs[1] [False1] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }
+kvs[1] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:0-Term:0-ok:false)
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S1
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S2
+kvs[1] [False1] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S2
+kvs[2] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S1
+kvs[3] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[3] [False1] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[4] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S2
+kvs[0] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+kvs[1] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[4] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S3
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S3
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S3
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[2] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S3
+kvs[3] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[0] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[0] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+kvs[3] [False1] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S4
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S2
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[3] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[2] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S4
+kvs[2] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+kvs[3] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S4
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[4] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[4] [False1] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S3
+kvs[2] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[2] [False1] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }
+kvs[3] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[3] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S4
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S4
+kvs[1] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+kvs[0] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S0
+kvs[1] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[1] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+
+Clerk[615373117514413435] uid[1] Put  (4 : ) ->S0
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S1
+kvs[0] [start] Op_put_append OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }. (Index:1-Term:1-ok:true)
+kvs[3] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+S0 get_message[{true OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] } 1 false [] 0 0}]
+kvs[3] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+
+Clerk[2205727306725469519] uid[1] Put  (1 : ) ->S0
+		Leader[0] is alive
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S2
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S0
+kvs[0] [Sucess] Op_put_append[OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] }] reply[&{OK}]
+S2 get_message[{true OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] } 1 false [] 0 0}]
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S0
+S1 get_message[{true OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] } 1 false [] 0 0}]
+kvs[4] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[4] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+kvs[0] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }. (Index:2-Term:1-ok:true)
+		Follower[1] is alive
+S4 get_message[{true OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] } 1 false [] 0 0}]
+		Follower[4] is alive
+S0 get_message[{true OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] } 2 false [] 0 0}]
+kvs[4] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:0-Term:0-ok:false)
+kvs[4] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:0-Term:0-ok:false)
+		Follower[2] is alive
+S3 get_message[{true OP{Pid[615373117514413435]-Uid[1]-Type[Put]-Key[4]-Value[] } 1 false [] 0 0}]
+Clerk[615373117514413435] uid[1] Put reply ok(true), reply({OK})
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+		Leader[0] is alive
+kvs[4] [False1] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }
+kvs[4] [False1] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }
+		Follower[3] is alive
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[3738442699179399540] uid[1] Put  (2 : ) ->S3
+Clerk[615373117514413435] uid[1] Put (4 : ) success, 请求结束
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S1
+kvs[0] [Sucess] Op_put_append[OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] }] reply[&{OK}]
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+
+Clerk[615373117514413435] uid[2] Append  (4 : x 4 0 y) ->S0
+kvs[0] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }. (Index:3-Term:1-ok:true)
+S1 get_message[{true OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] } 2 false [] 0 0}]
+		Follower[1] is alive
+kvs[0] [start] Op_put_append OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] }. (Index:4-Term:1-ok:true)
+Clerk[2205727306725469519] uid[1] Put reply ok(true), reply({OK})
+Clerk[2205727306725469519] uid[1] Put (1 : ) success, 请求结束
+
+Clerk[2205727306725469519] Uid[2] Get(1) ->S0
+
+Clerk[2226276400303715376] uid[1] Put  (3 : ) ->S1
+S4 get_message[{true OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] } 2 false [] 0 0}]
+		Follower[4] is alive
+kvs[2] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+S3 get_message[{true OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] } 2 false [] 0 0}]
+S2 get_message[{true OP{Pid[2205727306725469519]-Uid[1]-Type[Put]-Key[1]-Value[] } 2 false [] 0 0}]
+S0 get_message[{true OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] } 3 false [] 0 0}]
+kvs[0] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }. (Index:5-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] }. (Index:6-Term:1-ok:true)
+kvs[2] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+		Follower[3] is alive
+		Follower[2] is alive
+S2 get_message[{true OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] } 3 false [] 0 0}]
+		Leader[0] is alive
+S4 get_message[{true OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] } 3 false [] 0 0}]
+S1 get_message[{true OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] } 3 false [] 0 0}]
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+S3 get_message[{true OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] } 3 false [] 0 0}]
+		Follower[2] is alive
+S0 get_message[{true OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] } 4 false [] 0 0}]
+kvs[0] [Sucess] Op_put_append[OP{Pid[3738442699179399540]-Uid[1]-Type[Put]-Key[2]-Value[] }] reply[&{OK}]
+		Follower[4] is alive
+		Follower[1] is alive
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S2
+S2 get_message[{true OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] } 4 false [] 0 0}]
+		Follower[3] is alive
+		Leader[0] is alive
+Clerk[3738442699179399540] uid[1] Put reply ok(true), reply({OK})
+S4 get_message[{true OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] } 4 false [] 0 0}]
+S1 get_message[{true OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] } 4 false [] 0 0}]
+		Follower[2] is alive
+kvs[1] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+S3 get_message[{true OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] } 4 false [] 0 0}]
+S0 get_message[{true OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] } 5 false [] 0 0}]
+kvs[0] [Sucess] Op_put_append[OP{Pid[615373117514413435]-Uid[2]-Type[Append]-Key[4]-Value[x 4 0 y] }] reply[&{OK}]
+Clerk[3738442699179399540] uid[1] Put (2 : ) success, 请求结束
+		Follower[4] is alive
+		Follower[1] is alive
+S2 get_message[{true OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] } 5 false [] 0 0}]
+kvs[1] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+		Follower[3] is alive
+		Leader[0] is alive
+
+Clerk[3738442699179399540] uid[2] Append  (2 : x 2 0 y) ->S3
+Clerk[615373117514413435] uid[2] Append reply ok(true), reply({OK})
+		Follower[2] is alive
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+S3 get_message[{true OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] } 5 false [] 0 0}]
+		Follower[3] is alive
+S3 get_message[{true OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] } 6 false [] 0 0}]
+		Follower[3] is alive
+S0 get_message[{true OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] } 6 false [] 0 0}]
+		Leader[0] is alive
+kvs[0] [Sucess] Op_put_append[OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] }] reply[&{OK}]
+Clerk[615373117514413435] uid[2] Append (4 : x 4 0 y) success, 请求结束
+S2 get_message[{true OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] } 6 false [] 0 0}]
+kvs[0] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] }. (Index:7-Term:1-ok:true)
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S3
+S4 get_message[{true OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] } 5 false [] 0 0}]
+S1 get_message[{true OP{Pid[2226276400303715376]-Uid[1]-Type[Put]-Key[3]-Value[] } 5 false [] 0 0}]
+S0 get_message[{true OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] } 7 false [] 0 0}]
+Clerk[2205727306725469519] Uid[2] Get(1) reply_ok(true), reply({OK })
+Clerk[2226276400303715376] uid[1] Put reply ok(true), reply({OK})
+
+Clerk[615373117514413435] Uid[3] Get(4) ->S0
+		Follower[2] is alive
+		Follower[4] is alive
+kvs[3] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:0-Term:0-ok:false)
+		Follower[1] is alive
+		Leader[0] is alive
+Clerk[2205727306725469519] Uid[2] Get(1) success, reply_value[] 结束循环
+Clerk[2226276400303715376] uid[1] Put (3 : ) success, 请求结束
+S4 get_message[{true OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] } 6 false [] 0 0}]
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[3]-Type[Get]-Key[4]-Value[] }. (Index:8-Term:1-ok:true)
+kvs[3] [False1] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }
+S1 get_message[{true OP{Pid[2205727306725469519]-Uid[2]-Type[Get]-Key[1]-Value[] } 6 false [] 0 0}]
+S2 get_message[{true OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] } 7 false [] 0 0}]
+S3 get_message[{true OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] } 7 false [] 0 0}]
+S0 get_message[{true OP{Pid[615373117514413435]-Uid[3]-Type[Get]-Key[4]-Value[] } 8 false [] 0 0}]
+
+Clerk[2205727306725469519] uid[3] Append  (1 : x 1 0 y) ->S0
+kvs[0] [Sucess] Op_put_append[OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] }] reply[&{OK}]
+
+Clerk[2226276400303715376] uid[2] Append  (3 : x 3 0 y) ->S1
+		Follower[4] is alive
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({ErrWrongLeader})
+		Follower[1] is alive
+		Follower[2] is alive
+		Follower[3] is alive
+		Leader[0] is alive
+Clerk[3738442699179399540] uid[2] Append reply ok(true), reply({OK})
+kvs[0] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[3]-Type[Append]-Key[1]-Value[x 1 0 y] }. (Index:9-Term:1-ok:true)
+S4 get_message[{true OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] } 7 false [] 0 0}]
+kvs[0] [start] Op_put_append OP{Pid[2226276400303715376]-Uid[2]-Type[Append]-Key[3]-Value[x 3 0 y] }. (Index:10-Term:1-ok:true)
+
+Clerk[532879465346528703] uid[1] Put  (0 : ) ->S4
+S1 get_message[{true OP{Pid[3738442699179399540]-Uid[2]-Type[Append]-Key[2]-Value[x 2 0 y] } 7 false [] 0 0}]
+S2 get_message[{true OP{Pid[615373117514413435]-Uid[3]-Type[Get]-Key[4]-Value[] } 8 false [] 0 0}]
+S3 get_message[{true OP{Pid[615373117514413435]-Uid[3]-Type[Get]-Key[4]-Value[] } 8 false [] 0 0}]
+S0 get_message[{true OP{Pid[2205727306725469519]-Uid[3]-Type[Append]-Key[1]-Value[x 1 0 y] } 9 false [] 0 0}]
+Clerk[615373117514413435] Uid[3] Get(4) reply_ok(true), reply({OK x 4 0 y})
+Clerk[3738442699179399540] uid[2] Append (2 : x 2 0 y) success, 请求结束
+		Follower[2] is alive
+S2 get_message[{true OP{Pid[2205727306725469519]-Uid[3]-Type[Append]-Key[1]-Value[x 1 0 y] } 9 false [] 0 0}]
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }. (Index:11-Term:1-ok:true)
+		Follower[3] is alive
+		Leader[0] is alive
+Clerk[615373117514413435] Uid[3] Get(4) success, reply_value[x 4 0 y] 结束循环
+
+Clerk[3738442699179399540] uid[3] Append  (2 : x 2 1 y) ->S3
+		Follower[2] is alive
+S3 get_message[{true OP{Pid[2205727306725469519]-Uid[3]-Type[Append]-Key[1]-Value[x 1 0 y] } 9 false [] 0 0}]
+		Follower[3] is alive
+S3 get_message[{true OP{Pid[2226276400303715376]-Uid[2]-Type[Append]-Key[3]-Value[x 3 0 y] } 10 false [] 0 0}]
+		Follower[3] is alive
+S0 get_message[{true OP{Pid[2226276400303715376]-Uid[2]-Type[Append]-Key[3]-Value[x 3 0 y] } 10 false [] 0 0}]
+		Leader[0] is alive
+S0 get_message[{true OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] } 11 false [] 0 0}]
+		Leader[0] is alive
+kvs[0] [Sucess] Op_put_append[OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] }] reply[&{OK}]
+S3 get_message[{true OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] } 11 false [] 0 0}]
+		Follower[3] is alive
+Clerk[532879465346528703] uid[1] Put reply ok(true), reply({OK})
+Clerk[532879465346528703] uid[1] Put (0 : ) success, 请求结束
+S2 get_message[{true OP{Pid[2226276400303715376]-Uid[2]-Type[Append]-Key[3]-Value[x 3 0 y] } 10 false [] 0 0}]
+kvs[0] [start] Op_put_append OP{Pid[3738442699179399540]-Uid[3]-Type[Append]-Key[2]-Value[x 2 1 y] }. (Index:12-Term:1-ok:true)
+kvs[0] [Sucess] Op_put_append[OP{Pid[2205727306725469519]-Uid[3]-Type[Append]-Key[1]-Value[x 1 0 y] }] reply[&{OK}]
+kvs[0] [Sucess] Op_put_append[OP{Pid[2226276400303715376]-Uid[2]-Type[Append]-Key[3]-Value[x 3 0 y] }] reply[&{OK}]
+S0 get_message[{true OP{Pid[3738442699179399540]-Uid[3]-Type[Append]-Key[2]-Value[x 2 1 y] } 12 false [] 0 0}]
+
+Clerk[615373117514413435] Uid[4] Get(4) ->S0
+
+Clerk[532879465346528703] Uid[2] Get(0) ->S4
+		Follower[2] is alive
+Clerk[2205727306725469519] uid[3] Append reply ok(true), reply({OK})
+Clerk[2205727306725469519] uid[3] Append (1 : x 1 0 y) success, 请求结束
+
+Clerk[2205727306725469519] uid[4] Append  (1 : x 1 1 y) ->S0
+Clerk[2226276400303715376] uid[2] Append reply ok(true), reply({OK})
+Clerk[2226276400303715376] uid[2] Append (3 : x 3 0 y) success, 请求结束
+
+Clerk[2226276400303715376] Uid[3] Get(3) ->S1
+		Leader[0] is alive
+S2 get_message[{true OP{Pid[532879465346528703]-Uid[1]-Type[Put]-Key[0]-Value[] } 11 false [] 0 0}]
+		Follower[2] is alive
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[4]-Type[Get]-Key[4]-Value[] }. (Index:13-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[532879465346528703]-Uid[2]-Type[Get]-Key[0]-Value[] }. (Index:14-Term:1-ok:true)
+S3 get_message[{true OP{Pid[3738442699179399540]-Uid[3]-Type[Append]-Key[2]-Value[x 2 1 y] } 12 false [] 0 0}]
+		Follower[3] is alive
+kvs[0] [start] Op_put_append OP{Pid[2205727306725469519]-Uid[4]-Type[Append]-Key[1]-Value[x 1 1 y] }. (Index:15-Term:1-ok:true)
+kvs[0] [Sucess] Op_put_append[OP{Pid[3738442699179399540]-Uid[3]-Type[Append]-Key[2]-Value[x 2 1 y] }] reply[&{OK}]
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[3]-Type[Get]-Key[3]-Value[] }. (Index:16-Term:1-ok:true)
+S0 get_message[{true OP{Pid[615373117514413435]-Uid[4]-Type[Get]-Key[4]-Value[] } 13 false [] 0 0}]
+		Leader[0] is alive
+S0 get_message[{true OP{Pid[532879465346528703]-Uid[2]-Type[Get]-Key[0]-Value[] } 14 false [] 0 0}]
+		Leader[0] is alive
+Clerk[615373117514413435] Uid[4] Get(4) reply_ok(true), reply({OK x 4 0 y})
+Clerk[615373117514413435] Uid[4] Get(4) success, reply_value[x 4 0 y] 结束循环
+
+Clerk[615373117514413435] uid[5] Append  (4 : x 4 1 y) ->S0
+Clerk[3738442699179399540] uid[3] Append reply ok(true), reply({OK})
+Clerk[3738442699179399540] uid[3] Append (2 : x 2 1 y) success, 请求结束
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+S0 get_message[{true OP{Pid[2205727306725469519]-Uid[4]-Type[Append]-Key[1]-Value[x 1 1 y] } 15 false [] 0 0}]
+Clerk[532879465346528703] Uid[2] Get(0) reply_ok(true), reply({OK })
+Clerk[532879465346528703] Uid[2] Get(0) success, reply_value[] 结束循环
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+S3 get_message[{true OP{Pid[615373117514413435]-Uid[4]-Type[Get]-Key[4]-Value[] } 13 false [] 0 0}]
+		Follower[3] is alive
+kvs[0] [start] Op_put_append OP{Pid[615373117514413435]-Uid[5]-Type[Append]-Key[4]-Value[x 4 1 y] }. (Index:17-Term:1-ok:true)
+		Leader[0] is alive
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:18-Term:1-ok:true)
+S2 get_message[{true OP{Pid[3738442699179399540]-Uid[3]-Type[Append]-Key[2]-Value[x 2 1 y] } 12 false [] 0 0}]
+S3 get_message[{true OP{Pid[532879465346528703]-Uid[2]-Type[Get]-Key[0]-Value[] } 14 false [] 0 0}]
+		Follower[3] is alive
+S3 get_message[{true OP{Pid[2205727306725469519]-Uid[4]-Type[Append]-Key[1]-Value[x 1 1 y] } 15 false [] 0 0}]
+		Follower[3] is alive
+S3 get_message[{true OP{Pid[2226276400303715376]-Uid[3]-Type[Get]-Key[3]-Value[] } 16 false [] 0 0}]
+		Follower[3] is alive
+S0 get_message[{true OP{Pid[2226276400303715376]-Uid[3]-Type[Get]-Key[3]-Value[] } 16 false [] 0 0}]
+		Leader[0] is alive
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:19-Term:1-ok:true)
+kvs[0] [Sucess] Op_put_append[OP{Pid[2205727306725469519]-Uid[4]-Type[Append]-Key[1]-Value[x 1 1 y] }] reply[&{OK}]
+S0 get_message[{true OP{Pid[615373117514413435]-Uid[5]-Type[Append]-Key[4]-Value[x 4 1 y] } 17 false [] 0 0}]
+		Leader[0] is alive
+Clerk[2226276400303715376] Uid[3] Get(3) reply_ok(true), reply({OK x 3 0 y})
+Clerk[2226276400303715376] Uid[3] Get(3) success, reply_value[x 3 0 y] 结束循环
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+Clerk[2205727306725469519] uid[4] Append reply ok(true), reply({OK})
+Clerk[2205727306725469519] uid[4] Append (1 : x 1 1 y) success, 请求结束
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+kvs[0] [Sucess] Op_put_append[OP{Pid[615373117514413435]-Uid[5]-Type[Append]-Key[4]-Value[x 4 1 y] }] reply[&{OK}]
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:20-Term:1-ok:true)
+Clerk[615373117514413435] uid[5] Append reply ok(true), reply({OK})
+Clerk[615373117514413435] uid[5] Append (4 : x 4 1 y) success, 请求结束
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:21-Term:1-ok:true)
+S3 get_message[{true OP{Pid[615373117514413435]-Uid[5]-Type[Append]-Key[4]-Value[x 4 1 y] } 17 false [] 0 0}]
+		Follower[3] is alive
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:22-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:23-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:24-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:25-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:26-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:27-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:28-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:29-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:30-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:31-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:32-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:33-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:34-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:35-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:36-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:37-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:38-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:39-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:40-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:41-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:42-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:43-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:44-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:45-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:46-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:47-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:48-Term:1-ok:true)
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:49-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:50-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:51-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:52-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:53-Term:1-ok:true)
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:54-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:55-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:56-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:57-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:58-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:59-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:60-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:61-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:62-Term:1-ok:true)
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:63-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:64-Term:1-ok:true)
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:65-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:66-Term:1-ok:true)
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:67-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:68-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:69-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:70-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:71-Term:1-ok:true)
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:72-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:73-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:74-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:75-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:76-Term:1-ok:true)
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:77-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:78-Term:1-ok:true)
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:79-Term:1-ok:true)
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:80-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:81-Term:1-ok:true)
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:82-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:83-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:84-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:85-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:86-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:87-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:88-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:89-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:90-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:91-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:92-Term:1-ok:true)
+Clerk[3738442699179399540] Uid[4] Get(2) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[3738442699179399540] Uid[4] Get(2) ->S3
+Clerk[2226276400303715376] Uid[4] Get(3) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2226276400303715376] Uid[4] Get(3) ->S1
+kvs[0] [start] Get OP{Pid[3738442699179399540]-Uid[4]-Type[Get]-Key[2]-Value[] }. (Index:93-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[2226276400303715376]-Uid[4]-Type[Get]-Key[3]-Value[] }. (Index:94-Term:1-ok:true)
+kvs[0] [False2] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }
+Clerk[532879465346528703] uid[3] Append reply ok(true), reply({ErrMaxWaitTimeout})
+
+Clerk[532879465346528703] uid[3] Append  (0 : x 0 0 y) ->S4
+kvs[0] [start] Op_put_append OP{Pid[532879465346528703]-Uid[3]-Type[Append]-Key[0]-Value[x 0 0 y] }. (Index:95-Term:1-ok:true)
+Clerk[2205727306725469519] Uid[5] Get(1) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[2205727306725469519] Uid[5] Get(1) ->S0
+Clerk[615373117514413435] Uid[6] Get(4) reply_ok(true), reply({ErrMaxWaitTimeout })
+
+Clerk[615373117514413435] Uid[6] Get(4) ->S0
+kvs[0] [start] Get OP{Pid[2205727306725469519]-Uid[5]-Type[Get]-Key[1]-Value[] }. (Index:96-Term:1-ok:true)
+kvs[0] [start] Get OP{Pid[615373117514413435]-Uid[6]-Type[Get]-Key[4]-Value[] }. (Index:97-Term:1-ok:true)
+signal: interrupt
+FAIL	6.5840/kvraft	92.212s

@@ -1,0 +1,116 @@
+                                                                                                      S3 开始选举 at T1                                                 
+                                                                     S2 at T1 Granting Vote to S3                                                                       
+S0 at T1 Granting Vote to S3                                                                                                                                            
+                                   S1 at T1 Granting Vote to S3                                                                                                         
+                                                                                                                                       S4 at T1 Granting Vote to S3     
+                                                                                                      S3 获得大多数投票 at T1(3),                                       
+                                                                                                      converting to Leader                                              
+                                                                                                      S3 获得大多数投票 at T1(4),                                       
+                                                                                                      converting to Leader                                              
+                                                                                                      S3 获得大多数投票 at T1(5),                                       
+                                                                                                      converting to Leader                                              
+                                                                                                      S3 at T1 get client call                                          
+                                                                                                      command[OP{Pid[2524480423621005…                                  
+                                                                                                      log_len[2],log[2-[{0 <nil>} {1                                    
+                                                                                                      OP{Pid[252448042362100519]-Uid[…                                  
+                                                                                                      S3->S4 at T1 send [1]Entries                                      
+                                                                                                      S3 at T1 get client call                                          
+                                                                                                      command[OP{Pid[4602942692671294…                                  
+                                                                                                      log_len[3],log[3-[{0 <nil>} {1                                    
+                                                                                                      OP{Pid[252448042362100519]-Uid[…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[4602942692671294362]-Uid…                                  
+                                                                                                      S3->S0 at T1 send [2]Entries                                      
+                                                                                                      S3->S1 at T1 send [2]Entries                                      
+                                                                                                      S3 at T1 get client call                                          
+                                                                                                      command[OP{Pid[1968637181207171…                                  
+                                                                                                      log_len[4],log[4-[{0 <nil>} {1                                    
+                                                                                                      OP{Pid[252448042362100519]-Uid[…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[4602942692671294362]-Uid…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[1968637181207171546]-Uid…                                  
+                                                                                                      S3->S4 at T1 send [3]Entries                                      
+                                                                                                      S3->S2 at T1 send [3]Entries                                      
+                                   S1 at T1 Log-Len[3]                                                                                                                  
+                                                                                                                                       S4 at T1 Log-Len[2]              
+                                                                                                      S3 at T1 get client call                                          
+                                                                                                      command[OP{Pid[9457436760120676…                                  
+                                                                                                      log_len[5],log[5-[{0 <nil>} {1                                    
+                                                                                                      OP{Pid[252448042362100519]-Uid[…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[4602942692671294362]-Uid…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[1968637181207171546]-Uid…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[945743676012067637]-Uid[…                                  
+                                                                                                      S3->S0 at T1 send [4]Entries                                      
+                                                                                                      S3<-S1 at T1 get_reply[Success]                                   
+                                                                                                      NI:3 MI:2                                                         
+                                                                                                      S3<-S4 at T1 get_reply[Success]                                   
+                                                                                                      NI:2 MI:1                                                         
+                                                                                                      S3->S4 at T1 send [3]Entries                                      
+                                                                                                      S3 at T1 get client call                                          
+                                                                                                      command[OP{Pid[3569807590740517…                                  
+                                                                                                      log_len[6],log[6-[{1                                              
+                                                                                                      OP{Pid[252448042362100519]-Uid[…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[4602942692671294362]-Uid…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[1968637181207171546]-Uid…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[945743676012067637]-Uid[…                                  
+                                                                                                      {1                                                                
+                                                                                                      OP{Pid[3569807590740517423]-Uid…                                  
+S0 at T1 Log-Len[3]                                                                                                                                                     
+                                                                                                                                       S4 at T1 Log-Len[4]              
+                                                                                                      S3->S2 at T1 send [5]Entries                                      
+                                                                                                      S3<-S0 at T1 get_reply[Success]                                   
+                                                                                                      NI:3 MI:2                                                         
+                                                                                                      S3 at T1 CI[2],LA[1],Log-len[6]                                   
+                                                                                                      S3 at T1 CI[2],LA[2],Log-len[6]                                   
+                                                                     S2 at T1 Log-Len[4]                                                                                
+                                                                                                      S3->S4 at T1 send [4]Entries                                      
+S0 at T1 Log-Len[5]                                                                                                                                                     
+                                                                                                      S3->S2 at T1 send [5]Entries                                      
+                                                                     S2 at T1 Log-Len[6]                                                                                
+                                                                                                                                       S4 at T1 Log-Len[5]              
+                                                                                                      S3<-S2 at T1 get_reply[Success]                                   
+                                                                                                      NI:4 MI:3                                                         
+                                                                                                                                       S4 at T1 CI[1],LA[1],Log-len[5]  
+                                                                                                      S3->S1 at T1 send [3]Entries                                      
+                                                                     S2 at T1 CI[1],LA[1],Log-len[6]                                                                    
+                                                                                                      S3<-S4 at T1 get_reply[Success]                                   
+                                                                                                      NI:4 MI:3                                                         
+                                                                                                                                       S4 at T1 Log-Len[6]              
+                                                                                                      S3->S0 at T1 send [3]Entries                                      
+                                                                                                      S3->S2 at T1 send [2]Entries                                      
+                                                                                                      S3->S1 at T1 send [3]Entries                                      
+                                                                                                      S3->S1 at T1 send [3]Entries                                      
+                                                                                                                                       S4 at T1 CI[2],LA[2],Log-len[6]  
+                                   S1 at T1 Log-Len[6]                                                                                                                  
+                                                                                                      S3<-S4 at T1 get_reply[Success]                                   
+                                                                                                      NI:6 MI:5                                                         
+                                                                                                      S3 at T1 CI[3],LA[3],Log-len[6]                                   
+S0 at T1 Log-Len[6]                                                                                                                                                     
+S0 at T1 CI[3],LA[1],Log-len[6]                                                                                                                                         
+S0 at T1 CI[3],LA[2],Log-len[6]                                                                                                                                         
+S0 at T1 CI[3],LA[3],Log-len[6]                                                                                                                                         
+                                                                     S2 at T1 Log-Len[6]                                                                                
+                                   S1 at T1 Log-Len[6]                                                                                                                  
+                                                                     S2 at T1 Log-Len[6]                                                                                
+                                   S1 at T1 CI[3],LA[1],Log-len[6]                                                                                                      
+                                   S1 at T1 CI[3],LA[2],Log-len[6]                                                                                                      
+                                   S1 at T1 CI[3],LA[3],Log-len[6]                                                                                                      
+                                   S1 at T1 Log-Len[6]                                                                                                                  
+                                                                     S2 at T1 CI[3],LA[2],Log-len[6]                                                                    
+                                                                     S2 at T1 CI[3],LA[3],Log-len[6]                                                                    
+                                   S1 开始选举 at T2                                                                                                                    
+                                                                     S2 at T2 Granting Vote to S1                                                                       
+                                                                                                                                       S4 at T2 Granting Vote to S1     
+S0 at T2 Granting Vote to S1                                                                                                                                            
+                                   S1 获得大多数投票 at T2(3),                                                                                                          
+                                   converting to Leader                                                                                                                 
+                                   S1 获得大多数投票 at T2(4),                                                                                                          
+                                   converting to Leader                                                                                                                 
+                                                                                                                                       S4 at T2 CI[3],LA[3],Log-len[6]  
