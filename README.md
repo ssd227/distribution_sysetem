@@ -8,7 +8,6 @@
 - mit6.824/6.5840
 - go-patterns (go相关参考)
 - docs
-  - [论文汇总](./docs/papers.md)
 
 ---
 ## 完成进度
@@ -51,6 +50,9 @@ Mit6.824 lab
 - [ ] Lab4
     - [ ] 4A
     - [ ] 4B
+
+---
+### 论文汇总 [papers.md](./docs/papers.md)
 
 ---
 ### 学习过程（个人经验）
